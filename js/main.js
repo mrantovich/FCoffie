@@ -76,13 +76,21 @@ let counter = 0;
 const buttonsBox = document.querySelectorAll('.buttons__general_act');
 
 for (i = 0; i < buttonsBox.length; i++) {
-	buttonsBox[i].addEventListener('click', showCounter);
+	buttonsBox[i].addEventListener('click', showNotify);
 };
 
 const counterEl = document.querySelector('.side__cart-counter');
+const notify = document.querySelector('.notify');
+
+function showNotify() {
+	notify.classList.remove('_active');
+	notify.classList.add('_active');
+	window.setTimeout(showCounter, 5000);
+}
 
 function showCounter() {
 	counter++;
 	counterEl.innerHTML = counter;
 	counterEl.style.display = 'flex';
+	notify.classList.remove('_active');
 }
